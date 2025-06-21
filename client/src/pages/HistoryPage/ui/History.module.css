@@ -1,0 +1,10 @@
+.history {
+    padding-top: 70px;
+}
+
+.actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}

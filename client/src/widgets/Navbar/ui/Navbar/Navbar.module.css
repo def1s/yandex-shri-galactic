@@ -1,0 +1,15 @@
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.serviceName {
+    padding: 6px;
+    margin-left: 40px;
+    font-size: 30px;
+    background-color: var(--dark-purple-background-color);
+}
+
+.logo {
+    max-height: 54px;
+}

@@ -1,0 +1,17 @@
+.menuItem {
+    font-weight: 400;
+    all: unset;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    font-size: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.active {
+    border-bottom: solid 2px #000;
+    padding-bottom: 2px;
+}
