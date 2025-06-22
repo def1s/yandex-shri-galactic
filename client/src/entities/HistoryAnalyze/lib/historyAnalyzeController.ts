@@ -65,4 +65,19 @@ export class HistoryAnalyzeController {
 	clearHistory() {
 		localStorage.removeItem(HISTORY_ANALYZE_LOCALSTORAGE_KEY);
 	}
+
+	setHistory(history: HistoryItem[]) {
+		this.clearHistory();
+
+		const stringifyHistory = JSON.stringify(history);
+
+		localStorage.setItem(HISTORY_ANALYZE_LOCALSTORAGE_KEY, stringifyHistory);
+	}
+
+	deleteHistoryItem(id: HistoryItem['id']) {
+		const history = this.getHistory();
+		const filteredHistory = history.filter((item) => item.id !== id);
+
+		this.setHistory(filteredHistory);
+	}
 }

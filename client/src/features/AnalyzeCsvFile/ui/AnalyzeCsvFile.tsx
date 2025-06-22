@@ -40,6 +40,7 @@ export const AnalyzeCsvFile = () => {
 		}
 
 		const historyData = {
+			id: Math.random() * 100000,
 			date: new Date(),
 			fileName: selectedFile.name,
 		};

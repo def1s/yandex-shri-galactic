@@ -25,10 +25,10 @@ export const Modal = (props: Props) => {
 		<Portal element={element}>
 			<div className={classNames(styles.modal, isOpen && styles.isOpen, className)}>
 				<div className={styles.overlay} onClick={onClose}>
-					<div className={styles.content} onClick={(e) => onClickContent(e)}>
+					<div className={styles.content} onClick={onClickContent}>
 						<CancelButton onClick={onClose} className={styles.cross} />
 
-						{children}
+						<div className={styles.contentScroll}>{children}</div>
 					</div>
 				</div>
 			</div>

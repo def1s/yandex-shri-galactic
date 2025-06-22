@@ -3,10 +3,16 @@ import { useState } from 'react';
 import type { HistoryItem } from '../../model/types';
 import { AnalyticModal } from '../AnalyticModal/AnalyticModal';
 
+import HappySmileIcon from '@/shared/assets/happy_smile.svg';
+import SadSmileIcon from '@/shared/assets/sad_smile.svg';
+import TrashIcon from '@/shared/assets/trash.svg';
+
 import styles from './Row.module.css';
 import { classNames } from '@/shared';
 
-type Props = HistoryItem;
+type Props = HistoryItem & {
+	onRemoveItem: (id: HistoryItem['id']) => void;
+};
 
 const formatDate = (date: Date) => {
 	return date.toLocaleDateString('ru-RU', {
@@ -17,7 +23,7 @@ const formatDate = (date: Date) => {
 };
 
 export const Row = (props: Props) => {
-	const { status, date, fileName, data } = props;
+	const { status, date, fileName, data, id, onRemoveItem } = props;
 
 	const [isAnalyticModalOpen, setIsAnalyticModalOpen] = useState(false);
 
@@ -40,13 +46,31 @@ export const Row = (props: Props) => {
 
 				<div className={styles.text}>{formatDate(date)}</div>
 
-				<div className={classNames(styles.text, status === 'error' && styles.disabled)}>
-					Обработан успешно
+				<div
+					className={classNames(
+						styles.text,
+						styles.status,
+						status === 'error' && styles.disabled,
+					)}
+				>
+					<div>Обработан успешно</div>
+					<HappySmileIcon className={classNames(status === 'error' && styles.disabled)} />
 				</div>
 
-				<div className={classNames(styles.text, status === 'success' && styles.disabled)}>
-					Не удалось обработать
+				<div
+					className={classNames(
+						styles.text,
+						styles.status,
+						status === 'success' && styles.disabled,
+					)}
+				>
+					<div>Не удалось обработать</div>
+					<SadSmileIcon className={classNames(status === 'error' && styles.disabled)} />
 				</div>
+			</div>
+
+			<div className={styles.removeBtn} onClick={() => onRemoveItem(id)}>
+				<TrashIcon />
 			</div>
 
 			{isAnalyticModalOpen && (

@@ -1,5 +1,7 @@
-import { ANALYTICS_LABELS, Card, Modal, ORDERED_ANALYTIC_FIELDS } from '@/shared';
+import { ANALYTICS_LABELS, Card, formatDayOfYear, Modal, ORDERED_ANALYTIC_FIELDS } from '@/shared';
 import type { IAnalytics } from '@/entities';
+
+import styles from './AnalyticModal.module.css';
 
 type Props = {
 	isOpen: boolean;
@@ -12,23 +14,30 @@ export const AnalyticModal = (props: Props) => {
 	const { isOpen, onClose, data } = props;
 
 	return (
-		// TODO: дублируется отрисовка логики аналитики
 		<Modal isOpen={isOpen} onClose={onClose}>
-			{ORDERED_ANALYTIC_FIELDS.map((field) => {
-				const value = data[field];
+			<div className={styles.cards}>
+				{ORDERED_ANALYTIC_FIELDS.map((field) => {
+					const value = data[field];
+					if (value === undefined) return null;
 
-				if (value === undefined) {
-					return null;
-				}
+					const label = ANALYTICS_LABELS[field];
+					if (!label) return null;
 
-				const label = ANALYTICS_LABELS[field];
+					const isDayOfYearField = field === 'less_spent_at' || field === 'big_spent_at';
+					const displayValue = isDayOfYearField
+						? formatDayOfYear(value as number)
+						: value;
 
-				if (!label) {
-					return null;
-				}
-
-				return <Card key={field} label={label} value={value} />;
-			})}
+					return (
+						<Card
+							key={field}
+							label={label}
+							value={displayValue}
+							className={styles.card}
+						/>
+					);
+				})}
+			</div>
 		</Modal>
 	);
 };

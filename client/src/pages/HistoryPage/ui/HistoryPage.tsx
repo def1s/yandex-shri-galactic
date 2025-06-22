@@ -12,9 +12,16 @@ export const HistoryPage = () => {
 
 	const navigate = useNavigate();
 
-	const handleRemoveHistory = () => {
+	const handleClearHistory = () => {
 		historyAnalyzeController.clearHistory();
 		setHistory([]);
+	};
+
+	const handleRemoveHistory = (id: number) => {
+		historyAnalyzeController.deleteHistoryItem(id);
+		const history = historyAnalyzeController.getHistory();
+
+		setHistory(history);
 	};
 
 	const handleGenerateMore = () => {
@@ -24,14 +31,14 @@ export const HistoryPage = () => {
 
 	return (
 		<div className={styles.history}>
-			<HistoryAnalyze.List history={history} />
+			<HistoryAnalyze.List history={history} onRemoveItem={handleRemoveHistory} />
 
 			<div className={styles.actions}>
 				<Button onClick={handleGenerateMore} theme={'green'}>
 					Сгенерировать больше
 				</Button>
 
-				<Button onClick={handleRemoveHistory}>Очистить все</Button>
+				<Button onClick={handleClearHistory}>Очистить все</Button>
 			</div>
 		</div>
 	);

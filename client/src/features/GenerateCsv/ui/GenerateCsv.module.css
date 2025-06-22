@@ -15,3 +15,48 @@
     font-weight: 400;
     font-size: 35px;
 }
+
+.button {
+    border: none;
+    border-radius: 10px;
+    height: 70px;
+    padding: 0 27px;
+    background-color: var(--turquoise-backgroud-color);
+    font-size: 35px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.errorButton {
+    background-color: var(--red-color);
+    color: #fff;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.infoText {
+    font-weight: 400;
+    font-size: 35px;
+}
+
+.errorText {
+    font-weight: 400;
+    font-size: 35px;
+    color: var(--red-color);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

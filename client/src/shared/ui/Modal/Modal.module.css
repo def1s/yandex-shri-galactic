@@ -4,6 +4,9 @@
     opacity: 0;
     pointer-events: none;
     z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .overlay {
@@ -12,27 +15,36 @@
     background-color: rgba(0 0 0 / 60%);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    padding: 20px 20px 0 20px;
+    box-sizing: border-box;
 }
 
 .content {
     position: relative;
-    padding: 40px;
+    width: 100%;
+    max-width: 1000px;
     background-color: #fff;
-    border-radius: 45px;
-    min-width: 1000px;
-    overflow-y: scroll;
+    border-radius: 45px 45px 0 0;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentScroll {
+    overflow-y: auto;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 .isOpen {
     opacity: 1;
     pointer-events: auto;
     z-index: 1000;
-    overflow: hidden;
 }
 
 .cross {
-    position: absolute;
-    right: -82px;
-    top: -30px;
+    position: absolute !important;
+    right: -80px;
+    top: -50px;
 }

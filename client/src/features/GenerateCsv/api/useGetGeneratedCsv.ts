@@ -18,6 +18,10 @@ export const useGetGeneratedCsv = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
+	const clearErrors = () => {
+		setError(null);
+	};
+
 	const generateCsv = async (props: Props): Promise<Return> => {
 		const { size, withErrors = 'off', maxSpend = 1000 } = props;
 
@@ -33,7 +37,7 @@ export const useGetGeneratedCsv = () => {
 			);
 
 			if (!result.ok) {
-				throw new Error('Error generating csv');
+				throw new Error('Ошибка генерации csv');
 			}
 
 			const blob = await result.blob();
@@ -43,7 +47,7 @@ export const useGetGeneratedCsv = () => {
 				url,
 			};
 		} catch (error) {
-			setError('Error generating csv');
+			setError('Ошибка генерации csv');
 		} finally {
 			setIsLoading(false);
 		}
@@ -53,5 +57,5 @@ export const useGetGeneratedCsv = () => {
 		};
 	};
 
-	return { isLoading, error, generateCsv };
+	return { isLoading, error, generateCsv, clearErrors };
 };

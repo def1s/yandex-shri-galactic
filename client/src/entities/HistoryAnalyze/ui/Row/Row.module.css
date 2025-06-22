@@ -1,5 +1,7 @@
 .row {
     width: 100%;
+    display: flex;
+    gap: 40px;
 }
 
 .record {
@@ -15,11 +17,29 @@
     cursor: pointer;
 }
 
+.status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .text {
     font-weight: 400;
     font-size: 30px;
 }
 
 .disabled {
-    color: #8F64AE
+    color: #8F64AE;
+}
+
+.removeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 87px;
+    height: 87px;
+    border-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
 }

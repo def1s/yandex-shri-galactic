@@ -107,6 +107,7 @@ export const LoadZone = ({
 				type="file"
 				className={styles.hiddenInput}
 				onChange={handleFileInputChange}
+				disabled={isFileSelected}
 				{...inputProps}
 			/>
 
