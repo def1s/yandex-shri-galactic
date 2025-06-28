@@ -9,5 +9,11 @@ type Props = {
 export const CancelButton = (props: Props) => {
 	const { onClick, className } = props;
 
-	return <div className={classNames(styles.cross, className)} onClick={onClick}></div>;
+	return (
+		<div
+			className={classNames(styles.cross, className)}
+			data-testid={'remove-button'}
+			onClick={onClick}
+		></div>
+	);
 };

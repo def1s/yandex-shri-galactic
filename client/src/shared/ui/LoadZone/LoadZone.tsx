@@ -40,6 +40,7 @@ export const LoadZone = ({
 		}
 
 		const file = e.target.files?.[0];
+
 		if (file) {
 			handleSelectFile(file);
 		}
@@ -101,6 +102,7 @@ export const LoadZone = ({
 			onDrop={handleDrop}
 			onDragOver={handleDragOver}
 			onDragLeave={handleDragLeave}
+			data-testid={'loadzone-container'}
 		>
 			<input
 				ref={fileInputRef}
@@ -108,6 +110,7 @@ export const LoadZone = ({
 				className={styles.hiddenInput}
 				onChange={handleFileInputChange}
 				disabled={isFileSelected}
+				data-testid={'file-input'}
 				{...inputProps}
 			/>
 
@@ -123,6 +126,7 @@ export const LoadZone = ({
 					)}
 					disabled={isLoading}
 					title={error || undefined}
+					data-testid={'file-upload'}
 				>
 					{isLoading && <SpinnerIcon />}
 					{!isLoading && (fileName || 'Загрузить файл')}

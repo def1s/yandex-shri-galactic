@@ -3,27 +3,15 @@ import { Button, CancelButton, classNames } from '@/shared';
 
 import styles from './GenerateCsv.module.css';
 import { useState } from 'react';
-
-const downloadFromUrl = (url: string) => {
-	const a = document.createElement('a');
-	a.href = url;
-	a.download = 'report.csv';
-
-	document.body.appendChild(a);
-	a.click();
-	a.remove();
-
-	URL.revokeObjectURL(url);
-};
+import { downloadFromUrl } from '../lib/downloadFromUrl';
 
 export const GenerateCsv = () => {
 	const [isGenerated, setIsGenerated] = useState(false);
 
-	// TODO: везде обрабатывать состояние
 	const { generateCsv, isLoading, error, clearErrors } = useGetGeneratedCsv();
 
 	const handleGenerateCsv = async () => {
-		const { url } = await generateCsv({ size: 0.1 });
+		const { url } = await generateCsv({ size: 0.01 });
 
 		if (!url) {
 			return;

@@ -48,7 +48,6 @@ export class HistoryAnalyzeController {
 				date: new Date(item.date),
 			}));
 		} catch (error) {
-			console.error(error);
 			return [];
 		}
 	}

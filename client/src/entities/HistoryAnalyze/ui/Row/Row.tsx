@@ -69,7 +69,11 @@ export const Row = (props: Props) => {
 				</div>
 			</div>
 
-			<div className={styles.removeBtn} onClick={() => onRemoveItem(id)}>
+			<div
+				className={styles.removeBtn}
+				onClick={() => onRemoveItem(id)}
+				data-testid={'remove-history-item'}
+			>
 				<TrashIcon />
 			</div>
 

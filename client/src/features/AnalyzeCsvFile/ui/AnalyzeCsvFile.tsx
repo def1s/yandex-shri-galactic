@@ -25,7 +25,7 @@ export const AnalyzeCsvFile = () => {
 
 		resetAnalytics();
 		clearErrors();
-	}, [resetAnalytics]);
+	}, []);
 
 	// TODO: запрос продолжает идти при смене вкладки, юзнуть аборт контроллер?
 	useEffect(() => {
@@ -45,7 +45,7 @@ export const AnalyzeCsvFile = () => {
 			fileName: selectedFile.name,
 		};
 
-		getAnalytics({ rows: 100000, file: selectedFile, onAnalyticSlice: setAnalytics })
+		getAnalytics({ rows: 10000, file: selectedFile, onAnalyticSlice: setAnalytics })
 			.then((result) => {
 				historyAnalyzeController.addHistory({
 					status: 'success',
