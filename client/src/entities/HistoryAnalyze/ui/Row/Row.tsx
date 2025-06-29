@@ -35,7 +35,7 @@ export const Row = (props: Props) => {
 		setIsAnalyticModalOpen((prev) => !prev);
 	};
 
-	if (!data) {
+	if (!data && status !== 'error') {
 		return null;
 	}
 
@@ -65,7 +65,7 @@ export const Row = (props: Props) => {
 					)}
 				>
 					<div>Не удалось обработать</div>
-					<SadSmileIcon className={classNames(status === 'error' && styles.disabled)} />
+					<SadSmileIcon className={classNames(status === 'success' && styles.disabled)} />
 				</div>
 			</div>
 
@@ -77,7 +77,7 @@ export const Row = (props: Props) => {
 				<TrashIcon />
 			</div>
 
-			{isAnalyticModalOpen && (
+			{isAnalyticModalOpen && data && (
 				<AnalyticModal
 					isOpen={isAnalyticModalOpen}
 					onClose={handleToggleAnalyticModal}

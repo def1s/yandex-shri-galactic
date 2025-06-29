@@ -17,10 +17,6 @@ const analyticsFields: AnalyticFields[] = [
 
 export class HistoryAnalyzeController {
 	private validateParsedHistoryItem(data?: IAnalytics) {
-		if (!data) {
-			return false;
-		}
-
 		for (const field in data) {
 			if (!analyticsFields.includes(field as AnalyticFields)) {
 				return false;
@@ -54,6 +50,8 @@ export class HistoryAnalyzeController {
 
 	addHistory(item: HistoryItem) {
 		const history = this.getHistory();
+
+		console.log({ item });
 
 		history.push(item);
 		const stringifyHistory = JSON.stringify(history);

@@ -12,10 +12,6 @@ describe('HistoryAnalyzeController', () => {
 	});
 
 	describe('validateParsedHistoryItem', () => {
-		it('should return false if data is undefined', () => {
-			expect(controller['validateParsedHistoryItem'](undefined)).toBe(false);
-		});
-
 		it('should return false if data has unknown fields', () => {
 			const invalidData = { unknown_field: 123 };
 			expect(controller['validateParsedHistoryItem'](invalidData as any)).toBe(false);

@@ -6,7 +6,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint",
     "preview": "vite preview",
-    "test": "vitest"
+    "tests:unit": "vitest",
+    "tests:e2e": "playwright test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "4.6.0",

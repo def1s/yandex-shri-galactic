@@ -89,6 +89,7 @@ export const useGetAnalytics = () => {
 			console.error(err);
 
 			setError('Ошибка при анализе файла');
+			throw err;
 		} finally {
 			setIsLoading(false);
 		}
