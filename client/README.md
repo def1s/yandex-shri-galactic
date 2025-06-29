@@ -30,7 +30,7 @@
 
 ```
 
-e2e/
+tests/
 ├── fixtures/              # Фикстуры (например, test.csv)
 ├── history.spec.ts        # Тесты истории загрузок
 ├── upload.spec.ts         # Загрузка файлов и аналитика
