@@ -84,7 +84,6 @@ npm run tests:e2e
 * **[Playwright](https://playwright.dev/)** — E2E тестирование
 * **[Vitest](https://vitest.dev/)** — Юнит- и компонентные тесты
 * **[Testing Library](https://testing-library.com/)** — Работа с React-компонентами
-* **[TypeScript](https://www.typescriptlang.org/)** — Надёжная типизация
 
 ---
 
